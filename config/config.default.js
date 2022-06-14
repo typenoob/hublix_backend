@@ -40,7 +40,7 @@ module.exports = (appInfo) => {
   config.mysql = {
     client: {
       // host
-      host: "192.168.157.128",
+      host: "127.0.0.1",
       // 端口号
       port: "3306",
       // 用户名
