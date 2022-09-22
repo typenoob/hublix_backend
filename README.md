@@ -1,30 +1,15 @@
 # hublix_backend
 
-## QuickStart
+随意影视后端
 
-<!-- add docs here for user -->
+## 部署流程
 
-see [egg docs][egg] for more detail.
+1. 安装mariadb10.3版本
+2. 导入[sql文件](https://github.com/typenoob/hublix_backend/blob/master/dump-hublix-202206142121.sql)
+3. 更改[数据库url](https://github.com/typenoob/hublix_backend/blob/master/config/config.default.js#L40-L52)
+4. 输入命令`npm install`
+5. 输入命令`npm start`
 
-### Development
+## 推荐方案
 
-```bash
-$ npm i
-$ npm run dev
-$ open http://localhost:7001/
-```
-
-### Deploy
-
-```bash
-$ npm start
-$ npm stop
-```
-
-### npm scripts
-
-- Use `npm run lint` to check code style.
-- Use `npm test` to run unit test.
-- Use `npm run autod` to auto detect dependencies upgrade, see [autod](https://www.npmjs.com/package/autod) for more detail.
-
-[egg]: https://eggjs.org
+- heroku容器+JawsDB Maria免费部署。 

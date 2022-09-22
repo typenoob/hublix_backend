@@ -22,7 +22,7 @@ class MovieController extends Controller {
     const { id: user_id } = await ctx.service.user.find(username);
     const { id: movie_id } = ctx.params;
     ctx.body = await ctx.service.movie.updateVote(user_id, movie_id);
-    if (ctx.body.updateSuccess) this.addLikes();
+    if (ctx.body.updateSuccess) await this.addLikes();
   }
   async minusAttitude() {
     const { ctx } = this;
@@ -30,7 +30,7 @@ class MovieController extends Controller {
     const { id: user_id } = await ctx.service.user.find(username);
     const { id: movie_id } = ctx.params;
     ctx.body = await ctx.service.movie.updateVote(user_id, movie_id, false);
-    if (ctx.body.updateSuccess) this.minusLikes();
+    if (ctx.body.updateSuccess) await this.minusLikes();
   }
   async getAttitude() {
     const { ctx } = this;
