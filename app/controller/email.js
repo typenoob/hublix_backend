@@ -9,15 +9,15 @@ class EmailController extends Controller {
     const code = Math.floor(Math.random() * (999999 - 100000 + 1) + 100000);
     // create reusable transporter object using the default SMTP transport
     let transporter = nodemailer.createTransport({
-      host: "smtp.office365.com",
+      host: "",
       port: 587,
       secure: false, // true for 465, false for other ports
       tls: {
         ciphers: "SSLv3",
       },
       auth: {
-        user: "hublix1@outlook.com", // generated ethereal user
-        pass: "chen..02", // generated ethereal password
+        user: "", // generated ethereal user
+        pass: "", // generated ethereal password
       },
     });
     // send mail with defined transport object
