@@ -27,13 +27,12 @@ module.exports = (appInfo) => {
   config.security = {
     csrf: {
       enable: false,
-      ignoreJSON: true,
     },
-    domainWhiteList: ["http://localhost:8080", "http://hublix.namu.cf"], // 允许访问接口的白名单
-  };
-  config.cors = {
-    origin: "*",
-    allowMethods: "GET,HEAD,PUT,POST,DELETE,PATCH",
+    domainWhiteList: [
+      "http://localhost:8080",
+      "https://hublix.namu.cf",
+      "https://hublix.vercel.app",
+    ],
   };
   config.mysql = {
     client: {
