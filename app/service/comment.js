@@ -1,7 +1,9 @@
 const Service = require("egg").Service;
+const { v4: uuidv4 } = require("uuid");
 class CommentService extends Service {
   async create(user_id, content, movie_id) {
     const result = await this.app.mysql.insert("comments", {
+      id: uuidv4(),
       user_id,
       content,
       movie_id,

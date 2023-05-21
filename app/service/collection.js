@@ -1,9 +1,11 @@
 const Service = require("egg").Service;
+const { v4: uuidv4 } = require("uuid");
 class CollectionService extends Service {
   async create(user_id, { name } = { name: "" }) {
     let result;
     if (name) {
       await this.app.mysql.insert("collections", {
+        id: uuidv4(),
         user_id,
         name,
       });
@@ -12,10 +14,11 @@ class CollectionService extends Service {
         { default_collection: (await this.findAll(user_id))[0].id },
         { where: { id: user_id } }
       );
-    } else
+    } else {
       result = await this.app.mysql.insert("collections", {
         user_id,
       });
+    }
     const updateSuccess = result.affectedRows === 1;
     return { updateSuccess };
   }

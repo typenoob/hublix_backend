@@ -1,6 +1,6 @@
 const Controller = require("egg").Controller;
 const nodemailer = require("nodemailer");
-
+require("dotenv").config();
 class EmailController extends Controller {
   // 发送验证码
   async sendCode() {
@@ -9,15 +9,17 @@ class EmailController extends Controller {
     const code = Math.floor(Math.random() * (999999 - 100000 + 1) + 100000);
     // create reusable transporter object using the default SMTP transport
     let transporter = nodemailer.createTransport({
-      host: "",
+      host: "smtp.office365.com",
       port: 587,
       secure: false, // true for 465, false for other ports
+      service: "outlook",
       tls: {
         ciphers: "SSLv3",
+        rejectUnauthorized: false,
       },
       auth: {
-        user: "", // generated ethereal user
-        pass: "", // generated ethereal password
+        user: process.env.EMAIL_USER, // generated ethereal user
+        pass: process.env.EMAIL_PASS, // generated ethereal password
       },
     });
     // send mail with defined transport object

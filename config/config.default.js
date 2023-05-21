@@ -1,8 +1,6 @@
 /* eslint valid-jsdoc: "off" */
-
-"use strict";
 const path = require("path");
-
+require("dotenv").config();
 /**
  * @param {Egg.EggAppInfo} appInfo app info
  */
@@ -24,14 +22,14 @@ module.exports = (appInfo) => {
     // myAppName: 'egg',
   };
   config.jwt = {
-    secret: "GmvjBd1gxK89iZDfcc1M", //自定义 token 的加密条件字符串
+    secret: "GmvjBd1gxK89iZDfcc1M", // 自定义 token 的加密条件字符串
   };
   config.security = {
     csrf: {
       enable: false,
       ignoreJSON: true,
     },
-    domainWhiteList: ["http://localhost:8080"], //允许访问接口的白名单
+    domainWhiteList: ["http://localhost:8080", "http://hublix.namu.cf"], // 允许访问接口的白名单
   };
   config.cors = {
     origin: "*",
@@ -40,15 +38,15 @@ module.exports = (appInfo) => {
   config.mysql = {
     client: {
       // host
-      host: "127.0.0.1",
+      host: process.env.MYSQL_HOST,
       // 端口号
-      port: "3306",
+      port: process.env.MYSQL_PORT,
       // 用户名
-      user: "root",
+      user: process.env.MYSQL_USER,
       // 密码
-      password: "root",
+      password: process.env.MYSQL_PASS,
       // 数据库名
-      database: "hublix",
+      database: process.env.MYSQL_DB,
     },
     // 是否加载到 app 上，默认开启
     app: true,

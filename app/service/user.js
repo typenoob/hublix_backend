@@ -1,8 +1,10 @@
 const Service = require("egg").Service;
+const { v4: uuidv4 } = require('uuid');
 class UserService extends Service {
   async create(username, password, nickname, email) {
     try {
       const result = await this.app.mysql.insert("users", {
+        id:uuidv4(),
         username,
         password,
         nickname,

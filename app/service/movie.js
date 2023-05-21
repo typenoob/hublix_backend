@@ -12,7 +12,7 @@ class MovieService extends Service {
     if (!movie) {
       this.create(id);
       movie = await this.app.mysql.get("movies", { id });
-    } //没有电影自动创建
+    } // 没有电影自动创建
     return movie;
   }
   async updateLikes(id, positive = true) {
@@ -45,10 +45,11 @@ class MovieService extends Service {
     if (movie) {
       const attitude = movie.attitude + positive * 2 - 1;
       if (attitude > 1) return { updateSuccess: false, err: "喜爱度超过上限" };
-      else if (attitude < -1)
+      else if (attitude < -1) {
         return { updateSuccess: false, err: "喜爱度超过下限" };
+      }
       const result = await this.app.mysql.update(
-        "votes",
+        'votes',
         {
           attitude,
         },
@@ -56,9 +57,8 @@ class MovieService extends Service {
       );
       const updateSuccess = result.affectedRows === 1;
       return { updateSuccess };
-    } else {
-      this.createVote(user_id, movie_id);
     }
+    this.createVote(user_id, movie_id);
   }
 }
 module.exports = MovieService;

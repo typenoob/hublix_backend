@@ -8,6 +8,7 @@
   },
   "dependencies": {
     "axios": "^0.27.2",
+    "dotenv": "^16.0.3",
     "egg": "^2.15.1",
     "egg-cors": "^2.2.3",
     "egg-jwt": "^3.1.7",
@@ -17,7 +18,8 @@
     "jsonwebtoken": "^8.5.1",
     "moment": "^2.29.3",
     "nodemailer": "^6.7.5",
-    "querystring": "^0.2.1"
+    "querystring": "^0.2.1",
+    "uuid": "^9.0.0"
   },
   "devDependencies": {
     "autod": "^3.0.1",
