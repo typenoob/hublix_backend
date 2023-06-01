@@ -47,6 +47,10 @@ module.exports = (appInfo) => {
       password: process.env.MYSQL_PASS,
       // 数据库名
       database: process.env.MYSQL_DB,
+      ssl: {
+        minVersion: 'TLSv1.2',
+        rejectUnauthorized: true
+      }
     },
     // 是否加载到 app 上，默认开启
     app: true,
