@@ -34,7 +34,7 @@
     "node": ">=16.0.0 <17"
   },
   "scripts": {
-    "start": "egg-scripts start --daemon --workers=1 --title=egg-server-hublix --ignore-stderr",
+    "start": "egg-scripts start --workers=1 --title=egg-server-hublix --ignore-stderr",
     "stop": "egg-scripts stop --title=egg-server-hublix",
     "dev": "egg-bin dev",
     "debug": "egg-bin debug",
