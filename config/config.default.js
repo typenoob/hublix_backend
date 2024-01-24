@@ -32,7 +32,8 @@ module.exports = (appInfo) => {
       "http://localhost:8080",
       "https://hublix.namu.cf",
       "https://hublix.vercel.app",
-      "http://hublix.github.namu.cf"
+      "http://hublix.github.namu.cf",
+      "https://hublix.namu.cn.eu.org"
     ],
   };
   config.mysql = {
