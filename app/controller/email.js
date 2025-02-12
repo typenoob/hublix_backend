@@ -24,7 +24,7 @@ class EmailController extends Controller {
     });
     // send mail with defined transport object
     let info = await transporter.sendMail({
-      from: '"hublix 随意影视 👻" <hublix1@outlook.com>', // sender address
+      from: `"hublix 随意影视 👻" <${process.env.EMAIL_USER}>`, // sender address
       to: address, // list of receivers
       subject: `电子邮件验证码： ${code} `, // Subject line
       html: `<table>\
